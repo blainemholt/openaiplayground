@@ -1,0 +1,420 @@
+﻿CMT or Truemotion: Path Ahead for Genoa & Mobile Telematics
+
+
+Product Manager: Blaine Holt 
+Date: 28th Feb 2023 
+
+
+Summary
+________________
+
+
+
+
+Background
+________________
+
+
+
+
+Cambridge Mobile Telematics Acquire TrueMotion
+June 17, 2021 - https://www.cmtelematics.com/news/cambridge-mobile-telematics-acquires-truemotion/
+
+Lemonade Partners with TrueMotion & Octo for Fixed Price Car Insurance Product
+
+
+* November 11, 2021 - Lemonade launched its fixed price telematics product, powered by TrueMotion and Octo. 
+
+
+* Policyholders are required to grant the Lemonade App permissions of location + fitness & motion to get the most out of the Fixed Price Product (Without permissions granted, policyholders do not have the benefit of Free Roadside Rescue and Emergency Accident Response).
+
+* The Lemonade App has the TrueMotion SDK installed. This collects location and limited sensor data. This is securely communicated through to Truemotion’s platform for trip detection, event processing, and map-matching.  
+
+* Driver enrollment and reporting is done through Lemonade interacting with the TrueMotion Platform.
+
+* TrueMotion data along with Claims data / Driver Enrollment is then further processed by Octo - providing a Driver Score leveraging features such as Distance Traveled, Time of Day Travelling, etc. The driver score is then used to provide a UBI discount to Fixed Price Customers.
+
+
+Lemonade Acquires Metromile: Significant Experience with Cambridge Mobile Telematics (CMT)
+
+   * July 28, 2022 - Lemonade completes acquisition of Metromile.
+
+   * Metromile entered into an agreement with with CMT on January 12, 2020 to begin their mobile telematics programme, with various outcomes:
+
+      * Developing a mobile based UBI model
+
+      * Create a TBYB model to increase adoption of Metromiles Pay-per-mile product 
+
+
+         * Data Science R&D looked at the correlation between CMT data and Pulse data indicating strong correlation between the two (some differences were identified) 
+
+         * One of the critical hurdles to overcome in leveraging the UBI model is generating OSM road type data from mobile trips. To this date, CMT (Truemotion also) does not provide OSM IDs to mapmatched points. 
+
+         * Metromiles mobile telematics programme continues today with low opt in rates.
+
+Project Genoa: Day 0 Telematics
+
+
+            * Outcome is to achieve Day 0 UBI based pricing where today it can only be achieved after the 1st term of a policy.
+
+            * Within Lemonade a Try Before You Buy (TBYB) approach will be used first
+
+            * The tactic is to use a 30 day window prior to the policy inception date and leverage mobile telematics to produce a UBI score
+
+CMT Platform Unification: Merging of TrueMotion and CMT into one
+
+               * 31 Jan 2023, CMT presented their platform unification approach. 
+
+               * The outcome is to minimize disruption of clients that use TrueMotion, whilst being able to leverage CMT Algorithms.
+
+               * TrueMotion would be migrated to what they term the ‘Unified Platform’. What is clear is the output data will change compared to what we have today. 
+
+               * CMT would support the integration to Octo if we remained using the TrueMotion SDK. If we were to switch to CMT SDK and platform, they advise they would prefer to use their own driver score vs. supporting an integration with Octo.
+
+               * Timeline of when they would start this work wouldn’t be until Q2 and beyond. 
+The Challenge
+________________
+
+
+Data Science: Applying a Model to an Unknown Data Format
+
+                  * Moving to a ‘Unified Platform’ or using Truemotion Data Structure places Telematics Data Science (TDS) and their current work with CMT data at a disadvantage. 
+
+                  * There isn’t the current volume of claims data against Truemotion data to leverage, where TSD have a substantial amount of claims data to create a Mobile UBI using CMT data.
+Platform Unification: Updates to Data Schemas and More
+
+                     * CMT provided information that the unified platform enables the Truemotion SDK to leverage CMT Algorithms on the platform, however the original Truemotion Algorithms would have a change to their data structure which is unknown at this time.
+
+                     * The following document was put together for review by CMT to understand the future of Truemotion (CMT, Truemotion & Lemonade ). We should aim to reduce the risk of investing in solutions in a platform that is being deprecated.
+Octo Driver Score and CMT
+
+                        * CMT advised that the CMT Platform doesn’t have a native integration with Octo, our current driver score provider for LMND Fixed Price
+
+                        * Octo have advised that they can ingest CMT data and has let us know that the structure is vastly different from Truemotion.
+
+                        * Ultimately, LMNDs goal is to have its own proprietary mobile UBI model. 
+Drive for Progress on Genoa
+
+
+                           * Competitors are already deploying Day 0 Telematics programmes (Progressives partnership with Credit Karma + OEMs + TBYB).
+
+                           * Consideration of the time to market here is high, so balancing out who needs to do the work (Product vs Data Science). In my opinion, this is where I see it to be faster / effective for Product / Engineering / InsurProd to do the switch to CMT vs Data Science.
+Sunk Costs / Return on Fixed Product Investment / Contracts
+
+                              * Truemotion Contract is more favorable for LMND vs the existing CMT contract MM has in place.
+
+                              * The difference in monthly user costs is marginal - but the we have no minimums or cancel clauses in the TrueMotion contract
+
+                              * The Truemotion Contract is not set to renew until the end of 2024. 
+
+                              * If we move to CMT we would want to negotiate similar terms to the existing TrueMotion. As a side note, in switching to CMT we would be ‘doing them a favor’ as it’s easier for them vs the Unified Platform approach
+CMT SDK is a stronger platform
+
+                                 * CMT SDK has advantages over the existing TrueMotion SDK
+
+                                 * Harsh Braking is determined by Accelerometer data in CMT - matching our UBI approach for Devices. TrueMotion uses delta’s in GPS speed which are not as accurate. 
+
+                                 * CMT also provides a higher sampling rate on the device vs. TrueMotion.
+
+Recent Discovery that Octo Driver Score & Loss Ratio Doesn’t Match
+
+
+Outstanding Questions
+
+
+________________
+
+
+
+
+Following to be answered by CMT on 30/03/2023
+
+
+                                    * What can we expect the output of data from the Unified Platform to look like? 
+
+                                       * Should we expect to receive data that follows a similar format to CMT, or from the existing format of Truemotion, or will there be a third schema we will have to support? 
+
+                                       * We need to understand the effort on our side in what changes we will need to support.
+
+                                          * What algorithms will be used?
+
+                                             * Will they be CMT, Truemotion, a mixture of both?
+
+                                             * This is an important distinction to know for us as it will shape whether we move straight to a CMT SKD, or continue to use the Truemotion SDK
+
+                                                * Is there a sunset / deprecation of Truemotion features in favour of CMT features?
+
+                                                   * Another way to frame this question is, at contract renewal, will Truemotion features be supported or not?
+
+                                                   * This is a factor in our decision to move to CMT over the existing Truemotion. Knowing where you will choose to invest will help us in our decision.
+
+                                                      * Can Octo be used to generate a driving score?
+
+                                                         * We have talked with Octo who have advised they can support both CMT and Truemotion data, but have raised the flag of how different the data is
+
+                                                         * We will continue our internal discussions if we would choose to refile because of a change to CMT’s driving score
+
+                                                            * Will Truemotion’s Telematics Dashboard be deprecated / sunset?
+
+                                                               * Is there continued investment in this also, or will partners of CMT be migrated to a different service / portal?
+
+                                                                  * Will driver provisioning and reporting change in the Unified Platform?
+
+                                                                     * Will we be able to use the existing integration, or do we need to make an update to this?
+
+                                                                        * In moving to a CMT SDK we will lose historic information about drivers who are provisioned through the existing Truemotion Platform. Is this true?
+
+                                                                        * What level of accuracy and information do we lose if we disable ‘Fitness and Motion’ tracking?
+
+                                                                        * What level of accuracy and information do we lose if we disable ‘Location’ tracking? [This is a requirement for CMT/Truemotion to work - but it’s a question that has come up. My assumption here is that no trips are created so no outputs are created]
+
+
+Crash Detection Issues
+
+
+                                                                           * We have two features that are driven from Crash detection in Truemotion. They are: 
+
+                                                                              * Emergency Crash Assistance for policyholders
+
+                                                                              * Crash Validation within our internal system Blender for our Claims Experience
+
+                                                                                 * For our Emergency Crash Assistance we see a high number of potential false positives. The process is ending up with the automated messages and calls being ignored or rejected by the policyholder
+
+                                                                                 * For Crash Validation - a sample of 46 multi-vehicle crashes saw only 16% detection of a crash when the policyholder was in the vehicle at the time. 
+
+                                                                                    * We are not able to pair a trip with the claim in most cases. 
+
+                                                                                    * As a crash is required to be part of the trip for easy identification, if not present it creates a lot of time for our CLX team to go into the telematics dashboard and find it.
+
+                                                                                    * When talking with our CLX team, they don’t have high confidence in the data itself. 
+
+In summary, if we decrease or increase the threshold in which a crash is detected, both features will have a positive or negative side effect associated with them. E,g. Lower threshold may result in crashes being detected for Claims but more false positives for our Emergency Crash Detection. 
+
+A few questions I have about this feature along with the Truemotion Dashboard:
+
+                                                                                       * Is the CMT crash detection algorithm better than that of Truemotion?
+
+                                                                                       * Are we able to create a URL / Query that enables us to display a possible range of trips in the Truemotion Dashboard
+
+                                                                                          * E.g. If a client advises of a claim on the 14th of Jan, but no crash is detected, can easily create a link that looks at possible trips that occurred say 5 days before and after the loss date? 
+
+Options Ahead
+________________
+
+
+
+
+All Options Require Telematics Pipeline Processing of Trips if we use the UBI Model
+
+
+                                                                                             * TrueMotion and CMT do not provide OSM IDs as part of the trips[a][b]. 
+
+                                                                                             * We use OSM IDs in our UBI model to identify road/street categories and calculate corresponding UBI factors for pricing.
+
+                                                                                             * Trips generated by each provider will need to be processed by the Telematics Pipeline and mapmatched to provide the OSM IDs.
+
+Keep TrueMotion & Migrate to Unified Platform Only When Contractually Obligated
+
+We maintain the status quo, leveraging the existing platform and data from Truemotion and Octo for the existing Fixed Price product, taking into account that at contract renewal (2024) we will have to migrate to the new unified platform. 
+
+Data Science will need to research and understand how trip and event data can be used in our UBI model for Day 0 Telematics Pricing.
+
+Additional option if we change nothing: Use Octo score to calculate Day 0 Telematics Pricing
+
+Pros
+
+                                                                                                * No additional development required to update mobile SDKs and create new integrations and mappings with CMT’s unified platform
+
+                                                                                                * Less disruption to other Car Tribe teams in this current year which have are focused on the new PPM and Fixed Price State Launches
+
+                                                                                                * If we use Octo for Day 0 Telematics Pricing - we can launch Genoa / TBYB early.
+Cons
+
+                                                                                                   * Data Science research required to understand TrueMotion Data and if it is fit for purpose for Genoa (Have CMT data). Unknown unknowns are present. Will be ‘throw away work’, since TrueMotion data will not exist in its present form after the platform is unified. Model performance may degrade significantly
+
+                                                                                                   * The data we collect between now and final migration is largely unusable for future pricing / risk work (different data structure & different core algorithms)
+
+                                                                                                   * We are kicking the can down the road. Having potentially large updates to the underlying data powering Genoa and Day 0 Telematics will result in teams needing to mitigate a lot of risk for a product that is live.
+
+                                                                                                   * This option is a tactical choice  and doesn’t align with the overall vision and strategic choice of “Generating our own Scoring Algorithm” and the re-use of our internal UBI model.  
+
+                                                                                                   * The quality of data from the TrueMotion is worse than  CMT (Example: TrueMotion uses GPS deltas and not accelerometer to calculate harsh acceleration / hard braking, whilst CMT uses sensor data).
+
+                                                                                                   * CMT will continue to invest in better algorithms and technology it has over TrueMotion.[c]
+
+                                                                                                   * New entrant competitors can start using CMT from the start, whilst Lemonade continues on a platform that will eventually be deprecated. 
+
+                                                                                                   * At time of contract renewal, we may not have capacity / opportunity cost.
+
+Keep TrueMotion SDK & Migrate to Unified Platform[d] as Part of Genoa (Must have CMT Algorithms & Data Structure)
+
+We maintain the TrueMotion SDK, migrating to the new unified platform and using Octo for the existing Fixed Price product. If the output of the unified platform is in a CMT data structure, if it is not, Data Science will need to see if output of the unified platform is fit for purpose. We will be dependent on CMT completing their unified platform before we can launch Day 0 Telematics Pricing.
+
+
+Pros
+
+                                                                                                      * We get the benefit of using shared algorithms (CMT / Truemotion) on the unified platform
+
+                                                                                                      * SDK is a version update, over a whole new SDK
+
+                                                                                                      * We get to maintain existing driver profiles from TrueMotion in Unified Platform
+
+                                                                                                      * Continue to use Octo as Driver Score
+
+                                                                                                      * Do not have to refile in states where Fixed Price has been launched
+
+Cons
+
+                                                                                                         * Data Science research required to understand output of the unified data[e][f] and if it is fit for purpose for Genoa (Have CMT data). Unknown unknowns are present. Model performance may degrade significantly
+
+
+                                                                                                         * The data that we collect between now and migration will be largely unusable for future pricing / risk work (different data structure, different core algorithms)
+
+                                                                                                         * Additional development required to map to new endpoints and schema of the unified platform, along with possible unknown outcomes based on what CMT decide to do based on their customer analysis and plan (Not known until Q2 2023 at the earliest)
+
+                                                                                                         * Will potentially have to update our Emergency Crash Response and Crash Claims experience with the new platform.
+
+                                                                                                         * The quality of data from the TrueMotion is worse than CMT (Example: TrueMotion uses GPS deltas and not accelerometer to calculate harsh acceleration / hard braking, whilst CMT uses sensor data)
+
+                                                                                                         * CMT will continue to invest in better algorithms and technology it has over TrueMotion.
+
+                                                                                                         * New entrant competitors can start using CMT from the start, whilst Lemonade continues on a platform that will eventually be deprecated. 
+
+                                                                                                         * Dependency on CMT to complete their unified platform.
+
+Swap to CMT SDK and Algorithms with Octo as Driver Score for Fixed Price Product
+
+We swap to the CMT SDK and platform whilst using Octo for the existing Fixed Price product. Data Science has significant experience with CMT data for our UBI model for Day 0 Telematics Pricing. We have only one dependency on CMT and that is providing the option to integrate directly with Octo. We also have the option to integrate our data with Octo directly
+
+Pros
+
+                                                                                                            * Data Science already have CMT training data, reducing the time and effort in creating a Day 0 Telematics price
+
+                                                                                                            * CMT in general is superior in data quality than TrueMotion (Example: Higher reporting frequency and usage of sensors for acceleration and hard braking) 
+
+                                                                                                            * We remove the dependency on CMT to complete a migration project (We should know how painful these are)
+
+                                                                                                            * Octo are willing work with us in migrating over to CMT
+
+                                                                                                            * The effort in remapping to new endpoints and a new data schema would be similar to migrating to the unified platform
+
+                                                                                                            * We set up strong foundations for the future of mobile telematics and Genoa. The data we collect now will be usable for all future initiatives
+
+Cons[g][h][i]
+
+                                                                                                               * Replacement of the TrueMotion SDK for CMT SDK. Development effort is required to change the SDK, remap to all the new APIs and go through app store launches. We would also have to re-ask for permissions
+
+                                                                                                               * We would have to rebuild the driver provisioning and reporting services that exist. We would have to also update the Emergency Response and Crash Detection (Blender / CLX) experiences. 
+
+                                                                                                               * We wouldn’t be able to carry over TrueMotion driver profiles.
+
+                                                                                                               * We run the risk of a new dependency and work with Octo to adopt the new CMT data if CMT were not willing to integrate directly with Octo.
+
+Swap to CMT SDK and Algorithms with CMT as Driver Score Provider
+
+We swap to the CMT SDK and platform whilst using CMTs Driver Score for the Fixed Price. Data Science has experience with CMT data for our UBI model for Day 0 Telematics Pricing. We refile in existing states as we have changed the underlying scoring algorithm.
+Pros
+
+                                                                                                                  * Data Science already have CMT data, reducing the time and effort in creating a Day 0 Telematics price
+
+                                                                                                                  * CMT in general is superior in data quality than TrueMotion (Example: Higher reporting frequency and usage of sensors for acceleration and hard braking) 
+
+                                                                                                                  * We remove the dependency on CMT to complete a migration project (We should know how painful these are)
+
+                                                                                                                  * The effort in remapping to new endpoints and a new data schema would be similar to migrating to the unified platform
+
+                                                                                                                  * We set up strong foundations for the future of mobile telematics and Genoa. The data we collect now will be usable for all future initiatives
+
+                                                                                                                  * A single provider for all mobile telematics data and scoring
+
+Cons[j][k]
+
+                                                                                                                     * Replacement of the TrueMotion SDK for CMT SDK. Development effort is required to change the SDK, remap to all the new APIs and go through app store launches. We would also have to re-ask for permissions
+
+                                                                                                                     * We would have to rebuild the driver provisioning and reporting services that exist. We would have to also update the Emergency Response and Crash Detection (Blender / CLX) experiences. 
+
+                                                                                                                     * We wouldn’t be able to carry over TrueMotion driver profiles.
+
+                                                                                                                     * Would have to refile in existing states where Fixed Product has launched
+
+                                                                                                                     * Discovery around the CMT scoring and commercial pricing would be required
+
+
+
+Recommendation
+________________
+
+
+
+
+Initial Recommendation pending discussion with CMT 
+
+Swap to CMT SDK and Algorithms with Octo as Driver Score for Fixed Price Product
+
+We swap to the CMT SDK and platform whilst using Octo for the existing Fixed Price product. Data Science has significant experience with CMT data for our UBI model for Day 0 Telematics Pricing. We have only one dependency on CMT and that is providing the option to integrate directly with Octo. We also have the option to integrate our data with Octo directly
+
+Pros
+
+                                                                                                                        * Data Science already have CMT training data, reducing the time and effort in creating a Day 0 Telematics price
+
+                                                                                                                        * CMT in general is superior in data quality than TrueMotion (Example: Higher reporting frequency and usage of sensors for acceleration and hard braking) 
+
+                                                                                                                        * We remove the dependency on CMT to complete a migration project (We should know how painful these are)
+
+                                                                                                                        * Octo are willing work with us in migrating over to CMT
+
+                                                                                                                        * The effort in remapping to new endpoints and a new data schema would be similar to migrating to the unified platform
+
+                                                                                                                        * We set up strong foundations for the future of mobile telematics and Genoa. The data we collect now will be usable for all future initiatives
+
+Cons[l][m][n]
+
+                                                                                                                           * Replacement of the TrueMotion SDK for CMT SDK. Development effort is required to change the SDK, remap to all the new APIs and go through app store launches. We would also have to re-ask for permissions
+
+                                                                                                                           * We would have to rebuild the driver provisioning and reporting services that exist. We would have to also update the Emergency Response and Crash Detection (Blender / CLX) experiences. 
+
+                                                                                                                           * We wouldn’t be able to carry over TrueMotion driver profiles.
+
+                                                                                                                           * We run the risk of a new dependency and work with Octo to adopt the new CMT data if CMT were not willing to integrate directly with Octo.
+
+
+
+
+Approach: Telematics Squad - More to come from Tech Analysis
+
+
+                                                                                                                              * Dope Squad are planning to move the existing Mobile Telematics Service to our Domain anyway. During the time we would need to:
+
+                                                                                                                                 * Set up a new Driver Enrollment process and map existing profiles to new CMT profiles.
+
+                                                                                                                                 * Ingest Trips from CMT and process them via Pipeline (The same requirement sits for TrueMotion Trips). Potentially to also place a data normalization layer in place [Create an agnostic telematics platform]
+
+                                                                                                                                 * Either:
+
+                                                                                                                                    * Pass through CMT and Driver data through to Octo for Driver Score Calculation. Reuse the existing Claims data integration with Octo. We would also be using the existing CMT Data to enable Data Science to create / train UBI model through LMND Pipeline
+
+                                                                                                                                       * Or:
+
+                                                                                                                                          * Leverage / Pressure CMT to create a native integration with Octo. 
+
+
+[a]Do TrueMo and CMT define trips differently, and if so, is there one that provides a more accurate trip route for OSM ID generation?
+[b]They both have the concept of trips. It would be interesting to know from Wayne (CMT Rep) which has the better trip detection in the SDK / Algorithm side
+[c]Assumption needs validation with Wayne - What is there future investment strategy?
+[d]on the unified platform there will be CMT algorithms and TM algorithms, which one are we talking about here?
+[e]I'd like to understand from Wayne whether unified data + CMT algorithms == CMT data (they presented unified data + TM algorithms at our meeting)
+[f]Same question on whether our model performance will be mainly impacted by the data source (CMT/TM) or algorithm (CMT/TM).
+[g]Do we risk triggering a refile in fixed price states given the underlying data feeding into Octo is different?
+[h]Also is the Octo score exposed to the customer today? Will this trigger vastly different scores that would lead to customer confusion/distrust?
+[i]I've placed that Con in there around the refile, but yes it will. 
+
+
+The score is not exposed today - but we would probably need to understand the pricing impact if there is variability.
+[j]It will take us some time to understand how CMT driver score behaves. Also from a commercial perspective, we are not sure how much CMT charges for using their driver score service.
+[k]Good call out, have added it in
+[l]Do we risk triggering a refile in fixed price states given the underlying data feeding into Octo is different?
+[m]Also is the Octo score exposed to the customer today? Will this trigger vastly different scores that would lead to customer confusion/distrust?
+[n]I've placed that Con in there around the refile, but yes it will. 
+
+
+The score is not exposed today - but we would probably need to understand the pricing impact if there is variability.
